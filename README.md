@@ -13,13 +13,40 @@ Used for practicing clean architecture, testing, and TDD fundamentals.
 
 ## Project Structure
 
-src/main/java/com/tdd/workshop/taskapp
-├─ TaskappApplication.java
-└─ task
-├─ model → JPA entity (Task)
-├─ persistence → Spring Data repository
-├─ service → Business logic
-└─ web → MVC controller
+## Project Structure
+
+```
+src
+├─ main
+│  ├─ java
+│  │  └─ com/tdd/workshop/taskapp
+│  │     ├─ TaskappApplication.java
+│  │     └─ task
+│  │        ├─ model
+│  │        │  └─ Task.java
+│  │        ├─ persistence
+│  │        │  └─ TaskRepository.java
+│  │        ├─ service
+│  │        │  └─ TaskService.java
+│  │        └─ web
+│  │           └─ TaskController.java
+│  └─ resources
+│     ├─ application.properties
+│     ├─ templates
+│     │  └─ tasks.html
+│     └─ static
+│        └─ styles.css
+└─ test
+   └─ java
+      └─ com/tdd/workshop/taskapp/task
+         ├─ service
+         │  └─ TaskServiceTest.java
+         ├─ web
+         │  └─ TaskControllerTest.java
+         └─ persistence
+            └─ TaskRepositoryTest.java
+```
+
 
 
 ## Tests
