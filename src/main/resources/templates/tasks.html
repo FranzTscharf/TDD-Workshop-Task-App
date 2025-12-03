@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskApp - Todos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>TaskApp</h1>
+
+    <form class="add-form" action="/tasks" method="post">
+        <input type="text" name="title" placeholder="New task..." autofocus>
+        <button type="submit">Add</button>
+    </form>
+
+    <p class="empty" th:if="${#lists.isEmpty(tasks)}">
+        No tasks available.
+    </p>
+
+    <ul class="tasks" th:if="${!#lists.isEmpty(tasks)}">
+        <li th:each="task : ${tasks}"
+            th:classappend="${task.done} ? 'done'">
+            <form th:action="@{'/tasks/' + ${task.id} + '/toggle'}"
+                  method="post"
+                  class="inline-form">
+                <button type="submit" class="toggle-btn"
+                        th:text="${task.done} ? '✔' : '○'">○</button>
+            </form>
+            <span class="title" th:text="${task.title}">Title</span>
+            <form th:action="@{'/tasks/' + ${task.id} + '/delete'}"
+                  method="post"
+                  class="inline-form">
+                <button type="submit" class="delete-btn">✕</button>
+            </form>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
