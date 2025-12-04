@@ -86,3 +86,7 @@ http://localhost:8080
 
 - Maven (wrapper included)
 
+
+## Conclusion
+
+In the repo there are positions marked with TODO on this possition you have to add code.
