@@ -13,11 +13,11 @@ public class TaskService {
     private final TaskRepository repository;
 
     public TaskService(TaskRepository repository) {
-        this.repository = repository;
+        // !TODO Logic to be added...
     }
 
     public List<Task> findAll() {
-        return repository.findAllByOrderByIdAsc();
+        // !TODO Logic to be added...
     }
 
 }
